@@ -1,5 +1,10 @@
 <!DOCTYPE html>
+<div id="visitCounter" style="padding: 10px; background: #111; color: #00ffcc; font-weight: bold; font-size: 1.1em;">
+  Besucher: <span id="counterValue">Lädt...</span>
+</div>
+
 <html lang="de">
+  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
