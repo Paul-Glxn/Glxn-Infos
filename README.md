@@ -116,6 +116,13 @@
   </footer>
   <script>
     (() => {
+      <!-- GLXN Bombe Runner Mini-Spiel -->
+  <section class="game-runner" tabindex="0" aria-label="Glxn Bombe Runner Spiel">
+    <div class="game-title">Glxn Bombe Runner - Atac's Abenteuer</div>
+
+    <button id="startBtn" class="btn" style="margin-bottom: 15px; font-size:1.4em; padding:10px 30px; background:#00ffcc; color:#000;">
+      Spiel starten
+    </button>
       const canvas = document.getElementById('gameCanvas');
       const ctx = canvas.getContext('2d');
 
