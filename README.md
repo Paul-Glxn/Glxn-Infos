@@ -114,6 +114,169 @@
   <footer>
     Website designed by Paul
   </footer>
+  <script>
+    (() => {
+      const canvas = document.getElementById('gameCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const groundHeight = 20;
+      const gravity = 0.8;
+      const jumpStrength = 15;
+      const elfWidth = 40;
+      const elfHeight = 60;
+      const poopWidth = 30;
+      const poopHeight = 20;
+
+      let elf = {
+        x: 50,
+        y: canvas.height - groundHeight - elfHeight,
+        vy: 0,
+        width: elfWidth,
+        height: elfHeight,
+        jumping: false
+      };
+
+      let obstacles = [];
+      let gameSpeed = 5;
+      let frameCount = 0;
+      let gameOver = false;
+
+      const messageDiv = document.getElementById('gameMessage');
+      const jumpBtn = document.getElementById('jumpBtn');
+
+      function resetGame() {
+        elf.y = canvas.height - groundHeight - elf.height;
+        elf.vy = 0;
+        elf.jumping = false;
+        obstacles = [];
+        frameCount = 0;
+        gameSpeed = 5;
+        gameOver = false;
+        messageDiv.style.display = 'none';
+      }
+
+      function createObstacle() {
+        obstacles.push({
+          x: canvas.width,
+          y: canvas.height - groundHeight - poopHeight,
+          width: poopWidth,
+          height: poopHeight,
+          color: '#7b4f00'
+        });
+      }
+
+      function drawElf() {
+        ctx.fillStyle = '#00ffcc';
+        // Kopf
+        ctx.beginPath();
+        ctx.ellipse(elf.x + elf.width / 2, elf.y + elf.height * 0.25, elf.width / 2.8, elf.height / 3.2, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Körper
+        ctx.fillRect(elf.x + elf.width * 0.2, elf.y + elf.height * 0.25, elf.width * 0.6, elf.height * 0.6);
+
+        // Augen
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.ellipse(elf.x + elf.width * 0.4, elf.y + elf.height * 0.2, 4, 6, 0, 0, Math.PI * 2);
+        ctx.ellipse(elf.x + elf.width * 0.6, elf.y + elf.height * 0.2, 4, 6, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Ohren (Spitze)
+        ctx.fillStyle = '#00ffcc';
+        ctx.beginPath();
+        ctx.moveTo(elf.x + 5, elf.y + elf.height * 0.25);
+        ctx.lineTo(elf.x + 15, elf.y + elf.height * 0.05);
+        ctx.lineTo(elf.x + 25, elf.y + elf.height * 0.25);
+        ctx.fill();
+      }
+
+      function drawObstacle(ob) {
+        ctx.fillStyle = ob.color;
+        ctx.fillRect(ob.x, ob.y, ob.width, ob.height);
+        // Kackhaufen: kleine Hügel zeichnen
+        ctx.beginPath();
+        ctx.moveTo(ob.x, ob.y);
+        ctx.bezierCurveTo(ob.x + ob.width / 3, ob.y - 10, ob.x + 2 * ob.width / 3, ob.y + 10, ob.x + ob.width, ob.y);
+        ctx.fill();
+      }
+
+      function update() {
+        if (gameOver) return;
+
+        frameCount++;
+
+        // Elf Bewegung
+        elf.vy += gravity;
+        elf.y += elf.vy;
+
+        if (elf.y > canvas.height - groundHeight - elf.height) {
+          elf.y = canvas.height - groundHeight - elf.height;
+          elf.vy = 0;
+          elf.jumping = false;
+        }
+
+        // Hindernisse erzeugen
+        if (frameCount % 90 === 0) {
+          createObstacle();
+        }
+
+        // Hindernisse bewegen
+        obstacles.forEach((ob, idx) => {
+          ob.x -= gameSpeed;
+          if (ob.x + ob.width < 0) obstacles.splice(idx, 1);
+        });
+
+        // Kollision prüfen
+        for (let ob of obstacles) {
+          if (
+            elf.x < ob.x + ob.width &&
+            elf.x + elf.width > ob.x &&
+            elf.y + elf.height > ob.y
+          ) {
+            gameOver = true;
+            messageDiv.style.display = 'block';
+          }
+        }
+
+        // Canvas leeren
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Boden zeichnen
+        ctx.fillStyle = '#004d4d';
+        ctx.fillRect(0, canvas.height - groundHeight, canvas.width, groundHeight);
+
+        // Elf und Hindernisse zeichnen
+        drawElf();
+        obstacles.forEach(drawObstacle);
+
+        if (!gameOver) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      // Event Listener für Leertaste
+      window.addEventListener('keydown', (e) => {
+        if ((e.code === 'Space' || e.key === ' ') && !gameOver && !elf.jumping) {
+          elf.vy = -jumpStrength;
+          elf.jumping = true;
+        }
+      });
+
+      // Event Listener für SPRINGEN Button
+      jumpBtn.addEventListener('click', () => {
+        if (!gameOver && !elf.jumping) {
+          elf.vy = -jumpStrength;
+          elf.jumping = true;
+        }
+      });
+
+      resetGame();
+      update();
+    })();
+  </script>
+</body>
+</html>
 
 
 
