@@ -82,7 +82,7 @@
 
   <!-- Buttons -->
   <a href="https://discord.gg/glxn" class="btn" target="_blank" rel="noopener">Zum Discord</a>
-  <a href="team.html" class="btn">Unser Team</a>
+  
   <a href="https://www.tiktok.com/@glxn.community" class="btn" target="_blank" rel="noopener">Zu unserem TikTok</a>
 
   <!-- Info-Block -->
