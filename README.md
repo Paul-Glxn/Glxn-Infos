@@ -94,7 +94,26 @@
     <p>Außerdem sind wir <strong>Maxim und Julian</strong> jederzeit erreichbar und für jeden da.</p>
     <p>Wir sind bereit für <strong>Partnerschaften</strong>.</p>
     <p>Wir machen <strong>coole Events</strong> und veranstalten <strong>Giveaways</strong>.</p>
-    <p>Wir freuen uns auf jedes neue Mitglied und suc
+    <p>Wir freuen uns auf jedes neue Mitglied und suchen neue teamietglieder</strong>.</p>
+  </div>
+
+  <!-- Unser Team -->
+  <section class="team-section">
+    <h2>UNSER TEAM</h2>
+    <p><strong>Owner:</strong> Maxim</p>
+    <p><strong>Stv owner:</strong> Julian</p>
+    <p><strong>Administratoren:</strong> Miku.Paul, 19.er</p>
+    <p><strong>Test Admins:</strong> 33.er, Julian</p>
+    <p><strong>Head Moderator:</strong> unknown</p>
+    <p><strong>Senior Modi:</strong> Justrekt</p>
+    <p><strong>Modi:</strong> 33er (Samy Zian)</p>
+    <p><strong>Probe Modi:</strong> Müller</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Website designed by Paul
+  </footer>
 
 
 
