@@ -1,11 +1,4 @@
-# Recreating and returning the updated HTML game + website code based on user specifications.
-# This will be a complete HTML string for the GLXN website including:
-# - Navigation
-# - Design upgrades
-# - A canvas-based game with textures, sounds, score, difficulty
-# - Team, Partner, Regeln, Links sections
 
-# Let's generate the final code content
 html_code = """
 <!DOCTYPE html>
 <html lang="de">
