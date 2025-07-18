@@ -144,9 +144,15 @@ html_code = """
   <div id="partner" class="section">
     <h2>Unsere Partner</h2>
     <ul>
-      <li>Partner 1</li>
-      <li>Partner 2</li>
-      <li>Partner 3</li>
+      <li>Partner :https://discord.gg/zmtlabs
+
+https://discord.gg/SZRmRXBJdw
+
+https://discord.gg/g4cgu9jUPr
+
+https://discord.gg/9CEbXnxf </li>
+      
+    
     </ul>
   </div>
 
