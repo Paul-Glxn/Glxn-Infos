@@ -1,41 +1,26 @@
-
-html_code = """
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GLXN Community</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      background: linear-gradient(120deg, #0f0f0f, #1a1a1a);
       color: #fff;
-      overflow-x: hidden;
     }
 
     header {
       background-color: #111;
-      padding: 15px 20px;
+      padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      box-shadow: 0 4px 10px rgba(255,0,0,0.3);
-    }
-
-    .nav a {
-      margin: 0 10px;
-      color: #ff4444;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-
-    .nav a:hover {
-      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
     }
 
     .counter {
@@ -43,20 +28,52 @@ html_code = """
       font-size: 1em;
     }
 
-    h1, h2 {
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      background-color: #222;
+      color: #ff4444;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+      box-shadow: 0 0 6px rgba(255, 68, 68, 0.4);
+    }
+
+    .nav a:hover {
+      background-color: #ff4444;
+      color: #fff;
+      box-shadow: 0 0 10px #ff4444;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      color: #ff4444;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 10px #ff0000;
+    }
+
+    h2 {
       text-align: center;
       color: #ff4444;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 2em;
     }
 
     .section {
-      padding: 40px 20px;
+      padding: 40px 25px;
       max-width: 900px;
-      margin: auto;
+      margin: 40px auto;
       background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,0,0,0.2);
-      margin-bottom: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,0,0,0.2);
     }
 
     ul {
@@ -74,15 +91,17 @@ html_code = """
       background-color: #ff4444;
       color: #fff;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
-      margin: 5px;
-      transition: background 0.3s ease;
+      margin: 8px;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
     }
 
     .btn:hover {
       background-color: #cc0000;
+      box-shadow: 0 0 15px #ff4444;
     }
 
     #gameCanvas {
@@ -102,9 +121,10 @@ html_code = """
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       color: #aaa;
       background-color: #111;
+      font-size: 0.9em;
     }
   </style>
 </head>
@@ -144,15 +164,12 @@ html_code = """
   <div id="partner" class="section">
     <h2>Unsere Partner</h2>
     <ul>
-      <li>Partner :https://discord.gg/zmtlabs
-
-https://discord.gg/SZRmRXBJdw
-
-https://discord.gg/g4cgu9jUPr
-
-https://discord.gg/9CEbXnxf </li>
-      
-    
+      <li>
+        <a href="https://discord.gg/zmtlabs" target="_blank">Partner 1</a><br>
+        <a href="https://discord.gg/SZRmRXBJdw" target="_blank">Partner 2</a><br>
+        <a href="https://discord.gg/g4cgu9jUPr" target="_blank">Partner 3</a><br>
+        <a href="https://discord.gg/9CEbXnxf" target="_blank">Partner 4</a>
+      </li>
     </ul>
   </div>
 
@@ -189,14 +206,12 @@ https://discord.gg/9CEbXnxf </li>
   </footer>
 
   <script>
-    // Besucherzähler
     fetch('https://api.countapi.xyz/hit/glxn-website-123/visits')
       .then(res => res.json())
       .then(data => {
         document.getElementById('counterValue').textContent = data.value;
       });
 
-    // Game variables
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
     let bomb, atac, poops, gravity, jumpStrength, isJumping, score, scoreInterval, gameLoop;
@@ -250,30 +265,23 @@ https://discord.gg/9CEbXnxf </li>
 
     function updateGame() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Update
       bomb.velocityY += gravity;
       bomb.y += bomb.velocityY;
       if (bomb.y >= 150) {
         bomb.y = 150;
         isJumping = false;
       }
-
       atac.x -= 4 + Math.random() * 2;
       if (atac.x < -30) atac.x = 800;
-
       for (let i = 0; i < poops.length; i++) {
         poops[i].x -= 5;
       }
-
-      // Draw
       ctx.drawImage(bombImage, bomb.x, bomb.y, bomb.width, bomb.height);
       ctx.drawImage(atacImage, atac.x, atac.y, atac.width, atac.height);
       for (let i = 0; i < poops.length; i++) {
         ctx.drawImage(poopImage, poops[i].x, poops[i].y, poops[i].width, poops[i].height);
       }
 
-      // Collisions
       for (let i = 0; i < poops.length; i++) {
         let p = poops[i];
         if (bomb.x < p.x + p.width && bomb.x + bomb.width > p.x &&
@@ -297,5 +305,4 @@ https://discord.gg/9CEbXnxf </li>
   </script>
 </body>
 </html>
-"""
 
