@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<div id="visitCounter" style="padding: 10px; background: #111; color: #00ffcc; font-weight: bold; font-size: 1.1em;">
-  Besucher: <span id="counterValue">12 </span>
-</div>
-
 <html lang="de">
-  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,283 +7,254 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #002b36);
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
       color: #ffffff;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px 20px;
     }
 
-    h1 {
-      font-size: 3em;
-      margin: 0 0 20px 0;
-      text-shadow: 0 0 8px #00ffcc;
+    header {
+      background-color: #111;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background-color: #1a1a1a;
+      transition: background 0.3s;
+    }
+
+    .nav a:hover {
+      background-color: #cc0000;
+    }
+
+    .counter {
+      color: #00ffcc;
+      font-weight: bold;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #ff4444;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 10px 0;
+      font-size: 1.1em;
     }
 
     .btn {
-      display: inline-block;
-      margin: 15px 15px;
-      padding: 15px 35px;
-      font-size: 1.3em;
+      padding: 10px 20px;
       background-color: #00ffcc;
       color: #000;
       border: none;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.5);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
+      margin: 5px;
     }
 
-    .btn:hover {
-      background-color: #00cfa1;
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 207, 161, 0.7);
-    }
-
-    .info {
-      margin: 25px auto 40px;
-      max-width: 650px;
-      font-size: 1.1em;
-      color: #a0d8d3;
-      line-height: 1.9em;
-      padding: 0 15px;
-      background: rgba(0, 255, 204, 0.1);
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00ffcc33;
-    }
-
-    hr {
-      margin: 30px auto;
-      width: 60%;
-      border: none;
-      border-top: 1px solid #00504d;
+    #gameCanvas {
+      display: none;
+      background-color: #222;
+      margin: 20px auto;
+      border: 2px solid #ff0000;
     }
 
     footer {
-      font-size: 0.85em;
-      color: #444444aa;
-      margin-top: auto;
-      padding: 20px 0 10px;
-      font-style: italic;
-      letter-spacing: 0.05em;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      background-color: #111;
     }
   </style>
 </head>
 <body>
 
-  <!-- Haupttitel -->
-  <h1>GLXN – DEIN COMMUNITY SERVER</h1>
+  <header>
+    <div class="counter">Besucher: <span id="counterValue">Lädt...</span></div>
+    <nav class="nav">
+      <a href="#home">Start</a>
+      <a href="#team">Unser Team</a>
+      <a href="#partner">Unsere Partner</a>
+      <a href="#regeln">Regeln</a>
+      <a href="#links">Unsere Links</a>
+      <a href="#spiel">Spiel</a>
+    </nav>
+  </header>
 
-  <!-- Buttons -->
-  <a href="https://discord.gg/glxn" class="btn" target="_blank" rel="noopener">Zum Discord</a>
-  
-  <a href="https://www.tiktok.com/@glxn.community" class="btn" target="_blank" rel="noopener">Zu unserem TikTok</a>
-
-  <!-- Info-Block -->
-  <div class="info">
-    <p>Dieser Discord wurde von <strong>Maxim</strong> gegründet.</p>
-    <p><strong>Julian</strong> ist der Stv. Owner.</p>
-    <p>Mit fast <strong>1.500 Membern</strong> ist GLXN eine starke Community.</p>
-    <hr />
-    <p>Außerdem sind wir <strong>Maxim und Julian</strong> jederzeit erreichbar und für jeden da.</p>
-    <p>Wir sind bereit für <strong>Partnerschaften</strong>.</p>
-    <p>Wir machen <strong>coole Events</strong> und veranstalten <strong>Giveaways</strong>.</p>
-    <p>Wir freuen uns auf jedes neue Mitglied und suchen neue teamietglieder</strong>.</p>
+  <div id="home" class="section">
+    <h1>Willkommen bei GLXN</h1>
+    <p style="text-align:center;">Lustig und Vertrauenshaft – deine Community für Events & Giveaways.</p>
   </div>
 
-  <!-- Unser Team -->
-  <section class="team-section">
+  <div id="team" class="section">
     <h2>UNSER TEAM</h2>
-    <p><strong>Owner:</strong> Maxim</p>
-    <p><strong>Stv owner:</strong> Julian</p>
-    <p><strong>Administratoren:</strong> Miku.Paul, 19.er</p>
-    <p><strong>Test Admins:</strong> 33.er, Julian</p>
-    <p><strong>Head Moderator:</strong> unknown</p>
-    <p><strong>Senior Modi:</strong> Justrekt</p>
-    <p><strong>Modi:</strong> 33er (Samy Zian)</p>
-    <p><strong>Probe Modi:</strong> Müller</p>
-  </section>
+    <ul>
+      <li><strong>Owner:</strong> Maxim</li>
+      <li><strong>Stv Owner:</strong> Julian</li>
+      <li><strong>Administratoren:</strong> Miku.Paul, 19.er</li>
+      <li><strong>Test Admins:</strong> 33.er, Julian</li>
+      <li><strong>Head Moderator:</strong> unknown</li>
+      <li><strong>Senior Modi:</strong> Justrekt</li>
+      <li><strong>Modi:</strong> 33er (Samy Zian)</li>
+      <li><strong>Probe Modi:</strong> Müller</li>
+    </ul>
+  </div>
 
-  <!-- Footer -->
+  <div id="partner" class="section">
+    <h2>UNSERE PARTNER</h2>
+    <ul>
+      <li>Partner 1</li>
+      <li>Partner 2</li>
+      <li>Partner 3</li>
+      <!-- Du kannst später Logos oder Links ergänzen -->
+    </ul>
+  </div>
+
+  <div id="regeln" class="section">
+    <h2>REGELN</h2>
+    <ul>
+      <li>✅ Respektvoller Umgang</li>
+      <li>🚫 Keine Beleidigungen</li>
+      <li>🔗 Keine Links posten</li>
+      <li>📵 Keine Nummern oder Adressen ohne Erlaubnis</li>
+      <li>✊ Kein Rassismus oder Diskriminierung</li>
+      <li>🎉 Spaß haben ist Pflicht!</li>
+    </ul>
+  </div>
+
+  <div id="links" class="section">
+    <h2>UNSERE LINKS</h2>
+    <a href="https://discord.gg/glxn" class="btn" target="_blank">Discord</a>
+    <a href="https://www.tiktok.com/@glxn.community" class="btn" target="_blank">TikTok</a>
+  </div>
+
+  <div id="spiel" class="section">
+    <h2>Mini-Game: Glxn jagt Atac</h2>
+    <button class="btn" onclick="startGame()">Spiel starten</button>
+    <button class="btn" onclick="jump()">Springen</button><br><br>
+    <canvas id="gameCanvas" width="600" height="200"></canvas>
+  </div>
+
   <footer>
-    Website designed by Paul
+    Website von Paul für die GLXN Community – 2025
   </footer>
+
   <script>
-    (() => {
-      <!-- GLXN Bombe Runner Mini-Spiel -->
-  <section class="game-runner" tabindex="0" aria-label="Glxn Bombe Runner Spiel">
-    <div class="game-title">Glxn Bombe Runner - Atac's Abenteuer</div>
-
-    <button id="startBtn" class="btn" style="margin-bottom: 15px; font-size:1.4em; padding:10px 30px; background:#00ffcc; color:#000;">
-      Spiel starten
-    </button>
-      const canvas = document.getElementById('gameCanvas');
-      const ctx = canvas.getContext('2d');
-
-      const groundHeight = 20;
-      const gravity = 0.8;
-      const jumpStrength = 15;
-      const elfWidth = 40;
-      const elfHeight = 60;
-      const poopWidth = 30;
-      const poopHeight = 20;
-
-      let elf = {
-        x: 50,
-        y: canvas.height - groundHeight - elfHeight,
-        vy: 0,
-        width: elfWidth,
-        height: elfHeight,
-        jumping: false
-      };
-
-      let obstacles = [];
-      let gameSpeed = 5;
-      let frameCount = 0;
-      let gameOver = false;
-
-      const messageDiv = document.getElementById('gameMessage');
-      const jumpBtn = document.getElementById('jumpBtn');
-
-      function resetGame() {
-        elf.y = canvas.height - groundHeight - elf.height;
-        elf.vy = 0;
-        elf.jumping = false;
-        obstacles = [];
-        frameCount = 0;
-        gameSpeed = 5;
-        gameOver = false;
-        messageDiv.style.display = 'none';
-      }
-
-      function createObstacle() {
-        obstacles.push({
-          x: canvas.width,
-          y: canvas.height - groundHeight - poopHeight,
-          width: poopWidth,
-          height: poopHeight,
-          color: '#7b4f00'
-        });
-      }
-
-      function drawElf() {
-        ctx.fillStyle = '#00ffcc';
-        // Kopf
-        ctx.beginPath();
-        ctx.ellipse(elf.x + elf.width / 2, elf.y + elf.height * 0.25, elf.width / 2.8, elf.height / 3.2, 0, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Körper
-        ctx.fillRect(elf.x + elf.width * 0.2, elf.y + elf.height * 0.25, elf.width * 0.6, elf.height * 0.6);
-
-        // Augen
-        ctx.fillStyle = '#000';
-        ctx.beginPath();
-        ctx.ellipse(elf.x + elf.width * 0.4, elf.y + elf.height * 0.2, 4, 6, 0, 0, Math.PI * 2);
-        ctx.ellipse(elf.x + elf.width * 0.6, elf.y + elf.height * 0.2, 4, 6, 0, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Ohren (Spitze)
-        ctx.fillStyle = '#00ffcc';
-        ctx.beginPath();
-        ctx.moveTo(elf.x + 5, elf.y + elf.height * 0.25);
-        ctx.lineTo(elf.x + 15, elf.y + elf.height * 0.05);
-        ctx.lineTo(elf.x + 25, elf.y + elf.height * 0.25);
-        ctx.fill();
-      }
-
-      function drawObstacle(ob) {
-        ctx.fillStyle = ob.color;
-        ctx.fillRect(ob.x, ob.y, ob.width, ob.height);
-        // Kackhaufen: kleine Hügel zeichnen
-        ctx.beginPath();
-        ctx.moveTo(ob.x, ob.y);
-        ctx.bezierCurveTo(ob.x + ob.width / 3, ob.y - 10, ob.x + 2 * ob.width / 3, ob.y + 10, ob.x + ob.width, ob.y);
-        ctx.fill();
-      }
-
-      function update() {
-        if (gameOver) return;
-
-        frameCount++;
-
-        // Elf Bewegung
-        elf.vy += gravity;
-        elf.y += elf.vy;
-
-        if (elf.y > canvas.height - groundHeight - elf.height) {
-          elf.y = canvas.height - groundHeight - elf.height;
-          elf.vy = 0;
-          elf.jumping = false;
-        }
-
-        // Hindernisse erzeugen
-        if (frameCount % 90 === 0) {
-          createObstacle();
-        }
-
-        // Hindernisse bewegen
-        obstacles.forEach((ob, idx) => {
-          ob.x -= gameSpeed;
-          if (ob.x + ob.width < 0) obstacles.splice(idx, 1);
-        });
-
-        // Kollision prüfen
-        for (let ob of obstacles) {
-          if (
-            elf.x < ob.x + ob.width &&
-            elf.x + elf.width > ob.x &&
-            elf.y + elf.height > ob.y
-          ) {
-            gameOver = true;
-            messageDiv.style.display = 'block';
-          }
-        }
-
-        // Canvas leeren
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Boden zeichnen
-        ctx.fillStyle = '#004d4d';
-        ctx.fillRect(0, canvas.height - groundHeight, canvas.width, groundHeight);
-
-        // Elf und Hindernisse zeichnen
-        drawElf();
-        obstacles.forEach(drawObstacle);
-
-        if (!gameOver) {
-          requestAnimationFrame(update);
-        }
-      }
-
-      // Event Listener für Leertaste
-      window.addEventListener('keydown', (e) => {
-        if ((e.code === 'Space' || e.key === ' ') && !gameOver && !elf.jumping) {
-          elf.vy = -jumpStrength;
-          elf.jumping = true;
-        }
+    // Besucherzähler
+    fetch('https://api.countapi.xyz/hit/glxn-website-123/visits')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('counterValue').innerText = data.value;
+      })
+      .catch(() => {
+        document.getElementById('counterValue').innerText = "nicht verfügbar";
       });
 
-      // Event Listener für SPRINGEN Button
-      jumpBtn.addEventListener('click', () => {
-        if (!gameOver && !elf.jumping) {
-          elf.vy = -jumpStrength;
-          elf.jumping = true;
-        }
-      });
+    // Mini-Game
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    let bomb, atac, poop, gravity, gameLoop, jumping, jumpStrength;
 
-      resetGame();
-      update();
-    })();
+    function resetGameObjects() {
+      bomb = { x: 50, y: 150, width: 20, height: 20, velocityY: 0 };
+      atac = { x: 600, y: 150, width: 20, height: 20 };
+      poop = { x: 400, y: 160, width: 20, height: 10 };
+      gravity = 0.6;
+      jumping = false;
+      jumpStrength = -10;
+    }
+
+    function startGame() {
+      canvas.style.display = "block";
+      resetGameObjects();
+      clearInterval(gameLoop);
+      gameLoop = setInterval(updateGame, 20);
+    }
+
+    function jump() {
+      if (!jumping) {
+        bomb.velocityY = jumpStrength;
+        jumping = true;
+      }
+    }
+
+    function updateGame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update Positionen
+      bomb.velocityY += gravity;
+      bomb.y += bomb.velocityY;
+
+      if (bomb.y >= 150) {
+        bomb.y = 150;
+        jumping = false;
+      }
+
+      atac.x -= 5;
+      poop.x -= 5;
+
+      if (atac.x < -20) atac.x = 600;
+      if (poop.x < -20) poop.x = 600;
+
+      // Kollision
+      if (
+        bomb.x < atac.x + atac.width &&
+        bomb.x + bomb.width > atac.x &&
+        bomb.y < atac.y + atac.height &&
+        bomb.y + bomb.height > atac.y
+      ) {
+        clearInterval(gameLoop);
+        alert("GENUKED BYE GLXN!");
+        canvas.style.display = "none";
+      }
+
+      if (
+        bomb.x < poop.x + poop.width &&
+        bomb.x + bomb.width > poop.x &&
+        bomb.y < poop.y + poop.height &&
+        bomb.y + bomb.height > poop.y
+      ) {
+        clearInterval(gameLoop);
+        alert("Kackhaufen getroffen! Nochmal versuchen!");
+        canvas.style.display = "none";
+      }
+
+      // Zeichnen
+      ctx.fillStyle = "#ff0000";
+      ctx.fillRect(bomb.x, bomb.y, bomb.width, bomb.height);
+
+      ctx.fillStyle = "#00ff00";
+      ctx.fillRect(atac.x, atac.y, atac.width, atac.height);
+
+      ctx.fillStyle = "#964B00";
+      ctx.fillRect(poop.x, poop.y, poop.width, poop.height);
+    }
   </script>
 </body>
 </html>
-
-
-
