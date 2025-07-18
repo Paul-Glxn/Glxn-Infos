@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <div id="visitCounter" style="padding: 10px; background: #111; color: #00ffcc; font-weight: bold; font-size: 1.1em;">
-  Besucher: <span id="counterValue">Lädt...</span>
+  Besucher: <span id="counterValue">12 </span>
 </div>
 
 <html lang="de">
