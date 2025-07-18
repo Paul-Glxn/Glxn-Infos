@@ -293,8 +293,3 @@ html_code = """
 </html>
 """
 
-# Save as downloadable HTML
-with open("/mnt/data/GLXN_Pro_Design.html", "w") as file:
-    file.write(html_code)
-
-"/mnt/data/GLXN_Pro_Design.html"
