@@ -172,7 +172,6 @@
       <li><a href="https://discord.gg/zmtlabs" target="_blank">Partner 1</a></li>
       <li><a href="https://discord.gg/SZRmRXBJdw" target="_blank">Partner 2</a></li>
       <li><a href="https://discord.gg/g4cgu9jUPr" target="_blank">Partner 3</a></li>
-      <li><a href="https://discord.gg/9CEbXnxf" target="_blank">Partner 4</a></li>
     </ul>
   </div>
 
