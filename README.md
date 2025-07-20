@@ -196,7 +196,7 @@
   </div>
 
   <div id="spiel" class="section">
-    <h2>Mini-Game: GLXN jagt Atac</h2>
+    <h2>Mini-Game: GLXN jagt Server</h2>
     <div class="btn-group">
       <button class="btn" onclick="startGame()">Spiel starten</button>
       <button class="btn" onclick="jump()">Springen</button>
